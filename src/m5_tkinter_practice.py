@@ -49,11 +49,11 @@ def main():
     box.grid()
 
     hibi = ttk.Button(frame1, text='annie are you ok?')
-    hibi['command'] = lambda: print_mj(box)
+    hibi['command'] = lambda: print_hg(box)
     hibi.grid()
 
     # ------------------------------------------------------------------
-    # TODO: 7.
+    # d: 7.
     #    -- Put a second Entry on the Frame.
     #    -- Put a third Button on the frame.
     #    -- Make this new Button respond to a button-press as follows:
@@ -67,6 +67,11 @@ def main():
     #    that is a "user error" -- do NOT deal with that.
     #
     # ------------------------------------------------------------------
+    box2 = ttk.Entry(frame1)
+    box2.grid()
+    printer = ttk.Button(frame1, text='print the string a certain amount')
+    printer.grid()
+    printer['command'] = lambda: print_input(box, box2)
     ####################################################################
     # HINT:
     #   You will need to obtain the INTEGER from the STRING
@@ -81,15 +86,21 @@ def main():
     # ------------------------------------------------------------------
 
     def print_boi():
-        print('press f to pay respects')
+        print('hey')
 
-    def print_mj(entry):
+    def print_hg(entry):
         contents = entry.get()
-        if contents == 'are you ok':
-            print('are you ok annie?')
+        if contents == 'ok':
+            print('Hello')
         else:
-            print('come on you know the words')
+            print('Goodbye')
 
+    def print_input(entry, num):
+        contents = entry.get()
+        n = int(num.get())
+
+        for k in range(n):
+            print(contents)
 
     root.mainloop()
 
